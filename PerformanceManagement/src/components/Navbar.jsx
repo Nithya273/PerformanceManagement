@@ -3,16 +3,17 @@ import { RxDashboard } from "react-icons/rx";
 import { GoTasklist } from "react-icons/go";
 import { CgProfile } from "react-icons/cg";
 import { IoMdLogOut } from "react-icons/io";
-import Barchart from "./Barchart"
+import { useNavigate } from "react-router-dom";
 
 function Navbar(){
+  const navigate = useNavigate();
 
   return (
   <>
-  <div className=' w-[100vw]'>
-  <div className="shadow-lg shadow-pink-800  h-[90vh] w-[20%]  mt-[2%] ml-[2%] ">
+  <div className=' w-[25%] ml-5 mt-6'>
+  <div className="shadow-lg shadow-pink-800  h-[90vh] mt-[2%] ml-[2%] ">
   <h1 className='flex justify-center pt-5 text-pink-800 text-xl text '>Performance Management</h1>
-  <div className='pt-5 pl-12'>
+  <div className='pt-5 pl-6'>
     <NavLink
         className=" text-2xl"
         href="#required-for-focus"
@@ -28,24 +29,27 @@ function Navbar(){
           <NavLink label="Third child link" href="#required-for-focus" />
         </NavLink> */}
       </NavLink>
-
-      <NavLink
-        className='text-2xl'
-        href="#required-for-focus"
-        label="Assigned Tasks"
-        leftSection={<GoTasklist size="1.3rem" stroke={1.5} />}
-        childrenOffset={28}
-        defaultOpened
-      >
+      
+      
+          <NavLink
+            className='text-2xl'
+            label="Assigned Tasks"
+            leftSection={<GoTasklist size="1.3rem" stroke={1.5} />}
+            childrenOffset={28}
+            defaultOpened
+            onClick={()=>navigate("/Tasks")}
+          >
+          
+          </NavLink>
         
-      </NavLink>
+   
       <NavLink
         className='text-2xl'
-        href="#required-for-focus"
         label="Profile"
         leftSection={<CgProfile size="1.3rem" stroke={1.5} />}
         childrenOffset={28}
         defaultOpened
+        onClick={()=>navigate("/Profilepage")}
       >
         
       </NavLink>
@@ -62,7 +66,7 @@ function Navbar(){
       </div>
       </div>
       
-      <Barchart/>
+      
      
       </div>
   </>)

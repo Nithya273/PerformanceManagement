@@ -1,13 +1,20 @@
 import './App.css'
 import '@mantine/core/styles.css'
-// import Navbar from "./components/Navbar"
-import Navbar from "./components/ManagerPages/Navbar"
+import Navbar from "./components/Navbar"
 function App() {
   
   return (
     <>
-     <Navbar/> 
-   
+    <Router>
+    <Routes>
+      <Route exact path="/"
+      element={<Home/>}/>
+      <Route exact path="/Tasks"
+      element={<Tasks/>}/>
+      <Route exact path="/Profilepage"
+      element={<Profilepage/>}/>
+      </Routes>
+    </Router>
     </>
   )
 }
